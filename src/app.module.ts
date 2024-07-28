@@ -16,8 +16,10 @@ import { Department } from './department/entities/department.entity';
     imports: [ConfigModule],
     inject: [ConfigService],
     useFactory: (configService: ConfigService) => ({
+      // type: 'postgres',
+      // host: 'db',
       type: 'postgres',
-      host: 'db',
+      host: configService.get<string>('DATABASE_HOST'),
       port: configService.get<number>('DATABASE_PORT'),
       username: configService.get<string>('DATABASE_USERNAME'),
       password: configService.get<string>('DATABASE_PASSWORD'),
