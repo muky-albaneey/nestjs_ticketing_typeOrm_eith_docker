@@ -1,0 +1,39 @@
+# version: '3.8'
+
+# services:
+#   nestjs_api_prod:
+#     build:
+#       context: .
+#       dockerfile: Dockerfile.prod
+#     ports:
+#       - '3001:3001'
+#     environment:
+#       - PORT=3001
+#       - NODE_ENV=production
+#       - DATABASE_USERNAME=muky_albany
+#       - DATABASE_PASSWORD=iOoWAcFOvQUPnqooXU9II2kvNLgd7KQ0
+#       - DATABASE_NAME=grambutler
+#     volumes:
+#       - ./src:/usr/src/app/src
+
+version: '3.8'
+
+services:
+  nestjs_api_prod:
+    build:
+      context: .
+      dockerfile: Dockerfile.prod
+    ports:
+      - '3001:3001'
+    environment:
+      - PORT=${PORT}
+      - NODE_ENV=production
+      - DATABASE_USERNAME=${DATABASE_USERNAME}
+      - DATABASE_PASSWORD=${DATABASE_PASSWORD}
+      - DATABASE_NAME=${DATABASE_NAME}
+      - ACCESS_TOKEN=${ACCESS_TOKEN}
+      - REFRESH_TOKEN=${REFRESH_TOKEN}
+      - ROLE_TOKEN=${ROLE_TOKEN}
+    volumes:
+      - ./src:/usr/src/app/src
+
