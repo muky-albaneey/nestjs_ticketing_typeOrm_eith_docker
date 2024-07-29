@@ -58,6 +58,8 @@ export class DepartmentService {
 
   async update(id, name) {
     try {
+      console.log(id);
+      
       // const valDept = await this.deptRepo.findOne(where: { id });
       const valDept = await this.deptRepo.findOne({
         where: { id } });
