@@ -32,7 +32,7 @@ export class DepartmentController {
   update(@Body() updateDepartmentDto: UpdateDepartmentDto) {
     console.log(updateDepartmentDto);
     
-    return this.departmentService.update(updateDepartmentDto.id, updateDepartmentDto.name);
+    return this.departmentService.update(updateDepartmentDto.name);
   }
 
   @Delete(':id')
