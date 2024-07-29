@@ -30,7 +30,7 @@ export class DepartmentController {
 
   @Patch('update')
   update(@Body() updateDepartmentDto: UpdateDepartmentDto) {
-    return this.departmentService.update(updateDepartmentDto);
+    return this.departmentService.update(updateDepartmentDto.id);
   }
 
   @Delete(':id')
