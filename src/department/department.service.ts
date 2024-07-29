@@ -56,14 +56,14 @@ export class DepartmentService {
     }
   }
 
-  async update(updateDepartmentDto) {
+  async update(id, name) {
     try {
       // const valDept = await this.deptRepo.findOne(where: { id });
       const valDept = await this.deptRepo.findOne({
-        where: { updateDepartmentDto } });
+        where: { id } });
       if(!valDept) throw new NotFoundException({message: 'the name of this dept does not exist'});
 
-      valDept.name = updateDepartmentDto.name;
+      valDept.name = name;
   
       await this.deptRepo.save(valDept);
   
