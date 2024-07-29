@@ -28,9 +28,9 @@ export class DepartmentController {
     return this.departmentService.findOne(id);
   }
 
-  @Patch(':id')
-  update(@Param('id') id: string, @Body() updateDepartmentDto: CreateDepartmentDto) {
-    return this.departmentService.update(id, updateDepartmentDto);
+  @Patch('update')
+  update(@Body() updateDepartmentDto: UpdateDepartmentDto) {
+    return this.departmentService.update(updateDepartmentDto);
   }
 
   @Delete(':id')

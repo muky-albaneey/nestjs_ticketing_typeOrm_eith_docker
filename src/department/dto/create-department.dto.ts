@@ -2,9 +2,9 @@ import { IsNotEmpty, IsString, IsEmail, MinLength, MaxLength, IsOptional  } from
 
 
 export class CreateDepartmentDto {
-    // @IsOptional()
-    // @IsString() 
-    // id?: string;
+    @IsOptional()
+    @IsString() 
+    id?: string;
 
     @IsOptional()
     @IsString()    
