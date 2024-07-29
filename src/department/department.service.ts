@@ -56,8 +56,23 @@ export class DepartmentService {
     }
   }
 
-  update(id: number, updateDepartmentDto: UpdateDepartmentDto) {
-    return `This action updates a #${id} department`;
+  async update(id, updateDepartmentDto: CreateDepartmentDto) {
+    try {
+      // const valDept = await this.deptRepo.findOne(where: { id });
+      const valDept = await this.deptRepo.findOne({
+        where: { id } });
+      if(!valDept) throw new NotFoundException({message: 'the name of this dept does not exist'});
+
+      valDept.name = updateDepartmentDto.name;
+  
+      await this.deptRepo.save(valDept);
+  
+      console.log('Password changed and token cleared for user:', valDept);
+      return valDept;
+
+    } catch (error) {
+      
+    }
   }
 
   remove(id: number) {

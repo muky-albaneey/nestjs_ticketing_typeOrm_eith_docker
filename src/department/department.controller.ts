@@ -14,7 +14,8 @@ export class DepartmentController {
     return response.status(HttpStatus.OK).json({
       statusCode: HttpStatus.OK,
       message: 'Dept successfully created',
-      result: result    });
+      result: result    
+    });
   }
 
   @Get('all')
@@ -28,8 +29,8 @@ export class DepartmentController {
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updateDepartmentDto: UpdateDepartmentDto) {
-    return this.departmentService.update(+id, updateDepartmentDto);
+  update(@Param('id') id: string, @Body() updateDepartmentDto: CreateDepartmentDto) {
+    return this.departmentService.update(id, updateDepartmentDto);
   }
 
   @Delete(':id')
